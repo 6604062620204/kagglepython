@@ -1,0 +1,193 @@
+[
+    {
+        "label": "h5py",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "h5py",
+        "description": "h5py",
+        "detail": "h5py",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "io",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "io",
+        "description": "io",
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "CORSMiddleware",
+        "importPath": "fastapi.middleware.cors",
+        "description": "fastapi.middleware.cors",
+        "isExtraImport": true,
+        "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "uvicorn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uvicorn",
+        "description": "uvicorn",
+        "detail": "uvicorn",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "convertHDF5ToJpg",
+        "kind": 2,
+        "importPath": "hdf5convertjpg",
+        "description": "hdf5convertjpg",
+        "peekOfCode": "def convertHDF5ToJpg(hdf5Ref, saveTo):\n    # สร้างชื่อไฟล์ที่บันทึกเป็นชื่อของ dataset ที่เลือก\n    result = f'D:\\\\KMUTNB-CS\\\\OOPject\\\\comfile\\\\foldercopy\\\\trainfrompy\\\\{saveTo}.jpg'\n    with h5py.File(hdf5Ref, 'r') as f:\n        # ตรวจสอบว่า dataset ที่ต้องการมีอยู่ในไฟล์ HDF5 หรือไม่\n        if saveTo in f:\n            dataset = f[saveTo]\n            # ตรวจสอบว่าข้อมูลเป็น scalar หรือไม่\n            if dataset.ndim == 0:  # Scalar dataset\n                data = dataset[()]  # อ่านค่าของ scalar dataset",
+        "detail": "hdf5convertjpg",
+        "documentation": {}
+    },
+    {
+        "label": "print_datasets",
+        "kind": 2,
+        "importPath": "hdf5convertjpg",
+        "description": "hdf5convertjpg",
+        "peekOfCode": "def print_datasets(name, obj):\n    if isinstance(obj, h5py.Dataset):\n        datasets.append(name)  # เพิ่มชื่อ dataset ลงในรายการ\n# ฟังก์ชันสำหรับลิสต์ชื่อ dataset ทั้งหมดในไฟล์ HDF5\ndef list_datasets(hdf5Ref):\n    with h5py.File(hdf5Ref, 'r') as f:\n        f.visititems(print_datasets)\n# สร้างรายการสำหรับเก็บชื่อ dataset\ndatasets = []\n# แสดงรายการ dataset ในไฟล์ HDF5",
+        "detail": "hdf5convertjpg",
+        "documentation": {}
+    },
+    {
+        "label": "list_datasets",
+        "kind": 2,
+        "importPath": "hdf5convertjpg",
+        "description": "hdf5convertjpg",
+        "peekOfCode": "def list_datasets(hdf5Ref):\n    with h5py.File(hdf5Ref, 'r') as f:\n        f.visititems(print_datasets)\n# สร้างรายการสำหรับเก็บชื่อ dataset\ndatasets = []\n# แสดงรายการ dataset ในไฟล์ HDF5\nprint(\"Available datasets:\")\nlist_datasets(hdf5Ref)\n# Loop ผ่านทุก dataset และแปลงเป็น JPG\nfor saveTo in datasets:",
+        "detail": "hdf5convertjpg",
+        "documentation": {}
+    },
+    {
+        "label": "hdf5Ref",
+        "kind": 5,
+        "importPath": "hdf5convertjpg",
+        "description": "hdf5convertjpg",
+        "peekOfCode": "hdf5Ref = r'D:\\KMUTNB-CS\\OOPject\\comfile\\foldercopy\\train-image.hdf5'\n# ฟังก์ชันสำหรับพิมพ์ชื่อ dataset ที่พบในไฟล์ HDF5\ndef print_datasets(name, obj):\n    if isinstance(obj, h5py.Dataset):\n        datasets.append(name)  # เพิ่มชื่อ dataset ลงในรายการ\n# ฟังก์ชันสำหรับลิสต์ชื่อ dataset ทั้งหมดในไฟล์ HDF5\ndef list_datasets(hdf5Ref):\n    with h5py.File(hdf5Ref, 'r') as f:\n        f.visititems(print_datasets)\n# สร้างรายการสำหรับเก็บชื่อ dataset",
+        "detail": "hdf5convertjpg",
+        "documentation": {}
+    },
+    {
+        "label": "datasets",
+        "kind": 5,
+        "importPath": "hdf5convertjpg",
+        "description": "hdf5convertjpg",
+        "peekOfCode": "datasets = []\n# แสดงรายการ dataset ในไฟล์ HDF5\nprint(\"Available datasets:\")\nlist_datasets(hdf5Ref)\n# Loop ผ่านทุก dataset และแปลงเป็น JPG\nfor saveTo in datasets:\n    convertHDF5ToJpg(hdf5Ref, saveTo)",
+        "detail": "hdf5convertjpg",
+        "documentation": {}
+    },
+    {
+        "label": "DatasetRequest",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class DatasetRequest(BaseModel):\n    filename: str\n    datasetNames: List[str]\ndef convertHDF5ToJpg(hdf5Ref: str, saveTo: str):\n    result = os.path.join(hdf5Folder, f'changepicture\\\\{saveTo}.jpg')\n    with h5py.File(hdf5Ref, 'r') as f:\n        if saveTo in f:\n            dataset = f[saveTo]\n            if dataset.ndim == 0:\n                data = dataset[()]",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "convertHDF5ToJpg",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def convertHDF5ToJpg(hdf5Ref: str, saveTo: str):\n    result = os.path.join(hdf5Folder, f'changepicture\\\\{saveTo}.jpg')\n    with h5py.File(hdf5Ref, 'r') as f:\n        if saveTo in f:\n            dataset = f[saveTo]\n            if dataset.ndim == 0:\n                data = dataset[()]\n                try:\n                    img = Image.open(io.BytesIO(data)) \n                    img.save(result, 'jpeg')",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "list_datasets",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def list_datasets(hdf5Ref: str):\n    datasets = []\n    with h5py.File(hdf5Ref, 'r') as f:\n        def print_datasets(name, obj):\n            if isinstance(obj, h5py.Dataset):\n                datasets.append(name)\n        f.visititems(print_datasets)\n    return datasets\n@app.get(\"/list_hdf5_files\")\nasync def list_hdf5_files():",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = FastAPI()\n# ตั้งค่า CORS Middleware\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"http://localhost:5173\"],  # ระบุ URL ของ front-end Svelte ที่จะเข้าถึง API นี้\n    allow_credentials=True,\n    allow_methods=[\"*\"],  # อนุญาตทุก method เช่น GET, POST\n    allow_headers=[\"*\"],   # อนุญาตทุก headers\n)\nhdf5Folder = r'D:\\KMUTNB-CS\\OOPject\\comfile\\foldercopy'",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "hdf5Folder",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "hdf5Folder = r'D:\\KMUTNB-CS\\OOPject\\comfile\\foldercopy'\nclass DatasetRequest(BaseModel):\n    filename: str\n    datasetNames: List[str]\ndef convertHDF5ToJpg(hdf5Ref: str, saveTo: str):\n    result = os.path.join(hdf5Folder, f'changepicture\\\\{saveTo}.jpg')\n    with h5py.File(hdf5Ref, 'r') as f:\n        if saveTo in f:\n            dataset = f[saveTo]\n            if dataset.ndim == 0:",
+        "detail": "main",
+        "documentation": {}
+    }
+]
